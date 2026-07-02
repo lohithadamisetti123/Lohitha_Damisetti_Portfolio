@@ -1,5 +1,5 @@
 import React from 'react';
-import stackImage from '../assets/about/yusuf-avatar.png';
+import stackImage from '../assets/about/lohitha-avatar.png';
 import { aboutContent } from '../data/portfolioData';
 
 // Tech stack SVG icons rendered inline for crisp rendering
@@ -67,8 +67,8 @@ const About = () => {
               <div className="w-full aspect-[3/4] overflow-hidden rounded-xl bg-gray-800 border-2 border-transparent">
                 <img 
                   src={stackImage} 
-                  alt="Md Yusuf — Full Stack & Java Developer" 
-                  className="w-full h-full object-cover object-top"
+                  alt="Damisetti Lohitha — Full Stack Developer" 
+                  className="w-full h-full object-cover object-center"
                 />
               </div>
             </div>

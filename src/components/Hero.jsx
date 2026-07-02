@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import heroVideo from '../assets/hero video/yusuf-hero.mp4';
+import heroVideo from '../assets/hero video/lohitha-hero.mp4';
 import { heroContent, personalInfo, socialLinks } from '../data/portfolioData';
 
 const Hero = () => {
@@ -40,6 +40,7 @@ const Hero = () => {
         muted={isMuted}
         playsInline
         className="absolute top-0 left-0 w-full h-full object-cover z-0"
+        style={{ objectPosition: 'center 25%' }}
       >
         <source src={heroVideo} type="video/mp4" />
         Your browser does not support the video tag.
