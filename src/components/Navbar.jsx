@@ -20,7 +20,21 @@ const Navbar = () => {
 
   const navLinks = ['Home', 'About', 'Skills', 'Projects', 'Education', 'Contact'];
 
-  const hireMeMailto = `mailto:damisettilohitha@gmail.com?subject=Hiring Inquiry – Portfolio&body=Hello Lohitha,%0D%0A%0D%0AI came across your portfolio and would like to discuss an opportunity with you.%0D%0A%0D%0ALooking forward to hearing from you.%0D%0ABest Regards,`;
+  const handleNavClick = (e, link) => {
+    e.preventDefault();
+    if (link === 'Home') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      const target = document.querySelector(`#${link.toLowerCase()}`);
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleHireMe = (e) => {
+    e.preventDefault();
+    const target = document.querySelector('#contact');
+    if (target) target.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <nav 
@@ -46,8 +60,9 @@ const Navbar = () => {
           {navLinks.map((link) => (
             <a 
               key={link} 
-              href={`#${link.toLowerCase()}`}
-              className="text-white/80 hover:text-white font-medium relative group transition-colors duration-300"
+              href={link === 'Home' ? '#' : `#${link.toLowerCase()}`}
+              onClick={(e) => handleNavClick(e, link)}
+              className="text-white/80 hover:text-white font-medium relative group transition-colors duration-300 cursor-pointer"
             >
               {link}
               {/* Smooth hover underline */}
@@ -56,11 +71,11 @@ const Navbar = () => {
           ))}
         </div>
 
-        {/* Right Side: CTA Button */}
         <div className="hidden md:block">
           <a 
-            href={hireMeMailto}
-            className="px-6 py-2.5 rounded-full bg-white/10 border border-white/20 text-white font-semibold hover:bg-white/20 hover:shadow-[0_0_15px_rgba(255,255,255,0.2)] transition-all duration-300 backdrop-blur-md"
+            href="#contact"
+            onClick={handleHireMe}
+            className="px-6 py-2.5 rounded-full bg-white/10 border border-white/20 text-white font-semibold hover:bg-white/20 hover:shadow-[0_0_15px_rgba(255,255,255,0.2)] transition-all duration-300 backdrop-blur-md cursor-pointer"
           >
             Hire Me
           </a>
@@ -93,18 +108,18 @@ const Navbar = () => {
           {navLinks.map((link) => (
             <a 
               key={link} 
-              href={`#${link.toLowerCase()}`}
-              onClick={() => setIsOpen(false)}
-              className="text-white hover:text-black font-bold text-lg border-b border-white/20 pb-2 transition-colors"
+              href={link === 'Home' ? '#' : `#${link.toLowerCase()}`}
+              onClick={(e) => { handleNavClick(e, link); setIsOpen(false); }}
+              className="text-white hover:text-black font-bold text-lg border-b border-white/20 pb-2 transition-colors cursor-pointer"
             >
               {link}
             </a>
           ))}
           <div className="pt-4 pb-2">
              <a 
-               href={hireMeMailto}
-               onClick={() => setIsOpen(false)} 
-               className="inline-block px-6 py-3 rounded-full bg-white text-[#ff2a2a] font-black hover:bg-black hover:text-white transition-colors w-full text-center shadow-lg"
+               href="#contact"
+               onClick={(e) => { handleHireMe(e); setIsOpen(false); }} 
+               className="inline-block px-6 py-3 rounded-full bg-white text-[#ff2a2a] font-black hover:bg-black hover:text-white transition-colors w-full text-center shadow-lg cursor-pointer"
              >
                Hire Me
              </a>

@@ -13,7 +13,7 @@ const InternshipCard = ({ intern, index }) => (
           {intern.duration}
         </span>
         <span className="bg-white/10 text-white text-[10px] font-black tracking-widest uppercase py-1 px-3 rounded-full border border-white/15">
-          Internship
+          {intern.type || 'Internship'}
         </span>
       </div>
       <h3 className="text-white text-2xl font-black mb-1 tracking-tight">

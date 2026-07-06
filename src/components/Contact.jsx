@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { emailjsConfig, personalInfo, socialLinks } from '../data/portfolioData';
+import { personalInfo, socialLinks } from '../data/portfolioData';
 
 const Contact = () => {
   const ref = useRef(null);
@@ -17,55 +17,50 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (status === 'sending') return; // Prevent duplicate submissions
-
-    setStatus('sending');
+    if (status === 'sending') return;
 
     const form = formRef.current;
-    const firstName = form.querySelector('#firstName')?.value || '';
-    const lastName = form.querySelector('#lastName')?.value || '';
-    const email = form.querySelector('#email')?.value || '';
-    const message = form.querySelector('#message')?.value || '';
+    const firstName = form.querySelector('#firstName')?.value.trim() || '';
+    const lastName = form.querySelector('#lastName')?.value.trim() || '';
+    const email = form.querySelector('#email')?.value.trim() || '';
+    const message = form.querySelector('#message')?.value.trim() || '';
 
-    // Validate inputs
-    if (!firstName.trim() || !email.trim() || !message.trim()) {
+    // Validate required fields
+    if (!firstName || !email || !message) {
       setStatus('error');
       setTimeout(() => setStatus('idle'), 3000);
       return;
     }
 
-    // Check if EmailJS is configured (checking both placeholder values and falsy states)
-    const isConfigured = 
-      emailjsConfig.serviceId && 
-      emailjsConfig.serviceId !== 'YOUR_EMAILJS_SERVICE_ID' &&
-      emailjsConfig.templateId && 
-      emailjsConfig.templateId !== 'YOUR_EMAILJS_TEMPLATE_ID' &&
-      emailjsConfig.publicKey && 
-      emailjsConfig.publicKey !== 'YOUR_EMAILJS_PUBLIC_KEY';
+    setStatus('sending');
 
-    if (!isConfigured) {
-      // EmailJS not configured — fallback to prefilled mailto
-      const mailtoLink = `mailto:${personalInfo.emails.primary}?subject=Portfolio Contact from ${firstName} ${lastName}&body=${encodeURIComponent(`From: ${firstName} ${lastName}\nEmail: ${email}\n\n${message}`)}`;
-      window.open(mailtoLink, '_blank');
-      setStatus('success');
-      formRef.current.reset();
-      setTimeout(() => setStatus('idle'), 3000);
-      return;
-    }
-
-    // EmailJS integration
     try {
-      const emailjs = await import('@emailjs/browser');
-      await emailjs.sendForm(
-        emailjsConfig.serviceId,
-        emailjsConfig.templateId,
-        formRef.current,
-        emailjsConfig.publicKey
-      );
-      setStatus('success');
-      formRef.current.reset();
-    } catch (error) {
-      console.error('EmailJS Error:', error);
+      // Formsubmit.co — free, no account needed, delivers directly to inbox
+      const response = await fetch('https://formsubmit.co/ajax/damisettilohitha@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+          name: `${firstName} ${lastName}`.trim(),
+          email: email,
+          message: message,
+          _subject: `Portfolio Contact from ${firstName} ${lastName}`.trim(),
+          _captcha: 'false',
+        }),
+      });
+
+      const result = await response.json();
+
+      if (result.success === 'true' || result.success === true) {
+        setStatus('success');
+        formRef.current.reset();
+      } else {
+        setStatus('error');
+      }
+    } catch (err) {
+      console.error('Form submission error:', err);
       setStatus('error');
     }
 

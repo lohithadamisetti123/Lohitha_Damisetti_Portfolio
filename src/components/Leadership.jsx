@@ -6,11 +6,14 @@ const LeadershipItem = ({ item, index }) => {
 
   return (
     <div className="relative flex flex-col md:flex-row items-center justify-between mb-12 md:mb-16 w-full group">
-      {/* Timeline line dot */}
+      {/* Timeline line dot — always centered */}
       <div className="absolute left-4 md:left-1/2 -translate-x-1/2 w-4 h-4 bg-[#ff2a2a] rounded-full border-4 border-black z-30 shadow-[0_0_15px_#ff2a2a] group-hover:scale-125 transition-transform duration-300" />
 
-      {/* Card Content Side */}
-      <div 
+      {/* LEFT spacer (only on desktop for odd items) */}
+      {!isEven && <div className="hidden md:block w-[45%] order-1" />}
+
+      {/* Card */}
+      <div
         data-aos={isEven ? "fade-right" : "fade-left"}
         className={`w-full md:w-[45%] pl-12 md:pl-0 ${
           isEven ? 'md:text-right md:order-1' : 'md:text-left md:order-2'
@@ -22,7 +25,7 @@ const LeadershipItem = ({ item, index }) => {
               {item.badge}
             </span>
           </div>
-          
+
           <h3 className="text-white text-xl font-black mb-1 tracking-tight group-hover:text-[#ff2a2a] transition-colors">
             {item.title}
           </h3>
@@ -35,11 +38,12 @@ const LeadershipItem = ({ item, index }) => {
         </div>
       </div>
 
-      {/* Spacing spacer for desktop */}
-      <div className="hidden md:block w-[45%] order-2" />
+      {/* RIGHT spacer (only on desktop for even items) */}
+      {isEven && <div className="hidden md:block w-[45%] order-2" />}
     </div>
   );
 };
+
 
 const Leadership = () => {
   return (
