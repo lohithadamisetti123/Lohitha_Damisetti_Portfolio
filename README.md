@@ -1,16 +1,128 @@
-# React + Vite
+# 🚀 Shanmitha's Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive, and animated developer portfolio built to showcase my skills, projects, experience, and achievements as a **Full Stack Developer**.
 
-Currently, two official plugins are available:
+## 🌐 Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+🔗 [https://your-portfolio.vercel.app](https://lohitha-damisetti-portfolio.vercel.app/)
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ✨ Features
 
-## Expanding the ESLint configuration
+- 🎨 Modern Hero Section
+- ⚡ Smooth Animations with Framer Motion
+- 📱 Fully Responsive Design
+- 🌙 Beautiful UI & Gradients
+- 🧑 About Me Section
+- 💻 Skills Showcase
+- 🚀 Featured Projects
+- 📈 Experience Timeline
+- 📜 Certifications
+- 📬 Contact Form
+- 🔍 SEO Optimized
+- ⚡ Fast Loading & Optimized
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+
+### UI & Animations
+- Framer Motion
+- shadcn/ui
+- Lucide React
+
+### Deployment
+- Vercel
+
+---
+
+
+
+---
+
+## 🚀 Getting Started
+
+Clone the repository
+
+```bash
+git clone https://github.com/yourusername/portfolio.git
+```
+
+Move into the project
+
+```bash
+cd portfolio
+```
+
+Install dependencies
+
+```bash
+npm install
+```
+
+Run locally
+
+```bash
+npm run dev
+```
+
+Open
+
+```
+http://localhost:3000
+```
+
+---
+
+## 📸 Portfolio Sections
+
+- Home
+- About
+- Skills
+- Projects
+- Experience
+- Contact
+
+---
+
+## ⚡ Performance Optimizations
+
+- Image Optimization
+- Lazy Loading
+- Code Splitting
+- Responsive Images
+- SEO Meta Tags
+- Optimized Fonts
+- Lighthouse Friendly
+
+---
+
+## 💼 Featured Projects
+
+- 🌐 Full Stack Web Applications
+- 🤖 AI-Powered Solutions
+- 📊 Dashboard Applications
+- 📱 Responsive Websites
+
+---
+
+
+
+---
+
+## ⭐ Show Your Support
+
+If you like this portfolio, consider giving this repository a ⭐.
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
