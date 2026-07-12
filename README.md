@@ -1,4 +1,4 @@
-# 🚀 Shanmitha's Portfolio
+# 🚀 Shamya lohitha's Portfolio
 
 A modern, responsive, and animated developer portfolio built to showcase my skills, projects, experience, and achievements as a **Full Stack Developer**.
 
